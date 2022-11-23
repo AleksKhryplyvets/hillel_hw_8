@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hw-8</title>
+  </head>
+  <body>
+    <script>
+
+      // forEach
+
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      function loopForEach(array, callback) {
+        for (let i = 0; i < array.length; i++) {
+          callback(array[i], i, array);
+        }
+      }
+
+      function arguments(item, index, arr) {
+        console.log(item, index, arr);
+      }
+
+      loopForEach(arr, arguments);
+
+      // map
+
+      function arrMap(array, callback) {
+        let arrNew = [];
+        for (let i = 0; i < array.length; i++) {
+          arrNew.push(callback(array[i], i, array));
+        }
+        return arrNew;
+      }
+
+      function arguments(item, index, arr) {
+        return item, index, arr;
+      }
+
+      arrMap(arr, arguments);
+
+      // filter
+
+      function arrFilter(array, callback) {
+        let arrNew = [];
+        for (let i = 0; i < array.length; i++) {
+          if (callback(array[i], i, array)) {
+            arrNew.push(array[i]);
+          }
+        }
+        return arrNew;
+      }
+
+      function arguments(item, index, arr) {
+        return item, index, arr;
+      }
+
+      arrFilter(arr, arguments);
+    </script>
+  </body>
+</html>
